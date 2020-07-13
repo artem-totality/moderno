@@ -264,7 +264,6 @@
             display: inline-block;
             margin-left: 3px;
             margin-right: 3px;
-            cursor: pointer;
             &.slick-active {
                 button {
                    background-color: $green; 
@@ -278,6 +277,7 @@
                 width: 16px;
                 height: 16px;
                 outline: none;
+                cursor: pointer;
             }
         }
     }
