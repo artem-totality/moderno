@@ -731,6 +731,26 @@
     
 }
 
+.product-page__aside {
+    .product__item {
+        box-shadow: none;
+        &-img {
+            min-height: 120px;
+        }
+        &-title,
+        &-price {
+            font-size: 16px;
+        }
+        &-content {
+            padding: 0;
+            min-height: 75px;
+        }
+        &-info {
+            padding: 0;
+        }
+    }
+}
+
 
 
 //end product-page
