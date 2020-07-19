@@ -14,9 +14,34 @@
 
 .header__text {
     margin-left: auto;
-    margin-right: 50px;
     span {
         color: $red;
+    }
+}
+
+.header__box {
+    display: flex;
+    align-items: center;
+    margin-left: 35px;
+    .notification__box,
+    .message__box {
+        display: none;
+    }
+    &--login {
+        margin-left: 30px;
+        .header__btn {
+            &-login,
+            &-register {
+                display: none;
+            } 
+            &-logout {
+                display: inline-block;
+            }
+        }
+        .notification__box,
+        .message__box {
+            display: flex;
+        }
     }
 }
 
@@ -27,15 +52,19 @@
     text-align: center;
     color: #fff;
     font-size: 12px;
-}
+    &-login {
+        background-color: $green;
+    }
 
-.header__btn-login {
-    background-color: $green;
-}
+    &-register {
+        background-color: $red;
+        margin-left: 7px;
 
-.header__btn-register {
-    background-color: $red;
-    margin-left: 7px;
+    } 
+    &-logout {
+        display: none;
+        background-color: $red;
+    }
 }
 
 .header__menu {
@@ -61,6 +90,259 @@
     }
 }
 
+.header__circle {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    position: relative;
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #a0a0a0;
+        font-size: 14px;
+    }
+    span {
+        display: none;        
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 18px;
+        right: -7px;
+        top: -7px;
+        font-size: 11px;
+        color: #fff;
+    }
+    &.active span{
+        display: inline-block;
+    }
+    &.notification span {
+        background-color: $yellow;
+    }
+    &.message span {
+        background-color: $tomate;
+    }
+    &.basket span {
+        background-color: $green;
+    }
+}
+
+.user {
+    margin-left: 20px;
+    margin-right: 25px;
+    padding-right: 20px;
+    position: relative;
+    &::before {
+        content: "\f107";
+        position: absolute;
+        font-family: 'icomoon';
+        font-size: 16px;
+        color: #707070;
+        top: 0;
+        right: 0;
+    }
+    &__inner {
+        display: flex;
+        align-items: center;
+    }
+    &__images {
+        margin-right: 15px;
+        width: 34px;
+        height: 34px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+    &__info {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    &__name {
+        @include f500;
+        color: #222;
+    }
+    &__money {
+        @include f700;
+        color: $green;
+    }
+    &__box {
+        position: relative;
+        height: 90px;
+        margin-top: 42px;
+        &:hover {
+            .user__menu {
+                height: auto;
+                padding: 20px 20px 10px;
+                border-width: 1px;
+            }
+        }
+    }
+    &__menu {
+        background-color: #fff;
+        border: 0 solid #ccc;
+        position: absolute;
+        padding: 0 20px;
+        width: 158px;
+        transition: all 0.3s;
+        height: 0;
+        top: 69px;
+        left: 20px;
+        overflow: hidden;
+        a {
+            font-size: 12px;
+            color: #546e7a;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.header-icon__box  {
+    position: relative;
+    height: 90px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.message {
+    &__box {
+        &:hover {
+            .message__menu {
+                height: auto;
+                border-width: 1px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+    &__menu {
+        background-color: #fff;
+        border: 0 solid #ccc;
+        position: absolute;
+        transition: all 0.3s;
+        height: 0;
+        top: 90px;
+        right: 0;
+        overflow: hidden;
+        z-index: 10;
+        :last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+    &__item {
+        width: 268px;
+        padding: 15px 0 20px 20px;
+        border-bottom: 1px solid #e0e0e0;
+        position: relative;
+        display: flex;
+    }
+    &__img {
+        margin-right: 20px;
+        height: 48px;
+        height: 48px;
+        border-radius: 50%;
+    }
+    &__info {
+        width: 100%;
+        padding-right: 46px;
+        line-height: 18px;
+        &-name {
+            font-size: 12px;
+            color: $bg;
+            @include f700;
+        }
+        &-title {
+            font-size: 11px;
+            color: #84b743;
+        }
+        &-date {
+            font-size: 10px;
+            color: #707070;
+        }
+    }
+}
+
+.basket {
+    &__box {
+        &:hover {
+            .basket__menu {
+                height: auto;
+                border-width: 1px;
+                padding: 0 0 12px;
+            }
+        }
+    }
+    &__menu {
+        background-color: #fff;
+        border: 0 solid #ccc;
+        position: absolute;
+        transition: all 0.3s;
+        height: 0;
+        top: 90px;
+        right: 0;
+        overflow: hidden;
+        z-index: 10;
+        padding: 0;
+    }
+    &__item {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 23px;
+        display: flex;
+        align-items: center;
+        width: 269px;
+    }
+    &__images {
+        margin-right: 15px;
+    }
+    &__info {
+        &-name {
+            @include f500;
+            color: $bg;
+        }
+        &-them {
+            font-size: 12px;
+            color: $green;
+        }
+        &-price {
+            @include f500;
+            color: #000;
+            font-size: 16px;
+        }
+    }
+    &__summ {
+        padding: 16px 17px 12px;
+        &-title {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 13px;
+            padding-right: 22px;
+            @include f700;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: $bg;
+        }
+    }
+    &__btn {
+        @include f700;
+        color: #fff;
+        font-size: 14px;
+        padding: 10px 5px 10px;
+        background-color: $green;
+        text-align: center;
+        width: 100px;
+        margin-right: 3px;
+        &-checkout {
+            width: 123px;
+            background-color: $red;
+        }
+    }
+}
+
+  
 // end header
 // start search
 
@@ -260,7 +542,6 @@
     &-list {
         display: none;
         font-size: 12px;
-      //Finished here, time 38:00  
         .icon-comment-o, 
         .icon-heart-o {
             display: inline-block;
@@ -551,14 +832,9 @@
         margin-bottom: 13px;
         color: #b7c3c8;
         padding-left: 22px;
-        position: relative;
         &::before {
-            content: "\f105";
-            color: $green;
-            position: absolute;
-            left: 0;
             font-size: 18px;
-            font-family: 'icomoon';
+            top: -1px;
         }
     }
 }

@@ -109,3 +109,44 @@ body {
             }
     } 
 }
+
+.angle-right {
+    position: relative;
+    padding-left: 15px;
+    &::before {
+        content: "\f105";
+        font-family: 'icomoon';
+        position: absolute;
+        left: 0;
+        color: $green;
+        font-size: 14px;
+    }
+}
+
+.new-message,
+.seen-message,
+.answered-message {
+    &::before {
+        font-family: 'icomoon';
+        position: absolute;
+        top: 25px;
+        right: 30px;
+        font-size: 16px;
+    }
+
+}
+
+.new-message::before {
+    content: "\f003";
+    color: $tomate;
+}
+
+.seen-message::before {
+    content: "\f003";
+    color: #b0bec5;
+}
+
+.answered-message::before {
+    content: "\f112";
+    color: #b0bec5;
+}
