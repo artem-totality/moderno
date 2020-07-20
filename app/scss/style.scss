@@ -96,6 +96,9 @@
     border-radius: 50%;
     background-color: #f5f5f5;
     position: relative;
+    &:hover:before {
+        color: $bg;
+    }
     &::before {
         position: absolute;
         top: 50%;
@@ -206,6 +209,60 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.notification {
+    &__box {
+        &:hover {
+            .notification__menu {
+                height: auto;
+                border-width: 1px;
+                padding-bottom: 20px;
+            }
+        }
+    }
+    &__menu {
+        background-color: #fff;
+        border: 0 solid #ccc;
+        position: absolute;
+        transition: all 0.3s;
+        height: 0;
+        top: 90px;
+        right: 0;
+        overflow: hidden;
+        z-index: 10;
+        :last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    }
+    &__item {
+        width: 268px;
+        padding: 15px 0 20px 20px;
+        border-bottom: 1px solid #e0e0e0;
+        position: relative;
+        display: flex;
+    }
+    &__img {
+        margin-right: 20px;
+        height: 48px;
+        height: 48px;
+        border-radius: 50%;
+    }
+    &__info {
+        width: 100%;
+        padding-right: 46px;
+        line-height: 18px;
+        &-title {
+            padding-top: 4px;
+            font-size: 12px;
+            color: #84b743;
+        }
+        &-date {
+            font-size: 10px;
+            color: #707070;
+        }
+    }
 }
 
 .message {
